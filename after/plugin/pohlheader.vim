@@ -87,6 +87,14 @@ function! s:date()
 	return strftime("%Y/%m/%d %H:%M:%S")
 endfunction
 
+function! s:filename()
+	let l:filename = expand("%:t")
+	if strlen(l:filename) == 0
+		let l:filename = "< new >"
+	endif
+	return l:filename
+endfunction
+
 function! s:insert()
 	let l:line = 10
 
