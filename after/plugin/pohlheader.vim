@@ -71,7 +71,7 @@ function! s:textline(text)
 endfunction
 
 function! s:line(n)
-	if a:n == 1 || a:n == 7 || a:n == 10 " blank line
+	if a:n == 1 || a:n == 7 || a:n == 9 " blank line
 		return s:textline('')
 	elseif a:n == 2 || a:n == 3 || a:n == 4 || a:n == 5 || a:n == 6 " empty with ascii
 		return s:textline(s:ascii(a:n))
