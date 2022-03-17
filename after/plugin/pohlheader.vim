@@ -1,21 +1,20 @@
-" 
+"
 "     ::::::::   ::::::  :::   ::: :::
 "    :+:   :+: :+:  :+: :+:   :+: :+:  Paul OHL
 "   +#++++#+  +#+  +:+ +#++:+#++ +#+
 "  #+#       #+#  #+# #+#   #+# #+#
 " ###        ######  ###   ### #######
-" 
+"
 " Created: 2021/12/12 18:22:53
-" Description: 
-" 
+"
 
 
 let s:asciiart = [
-\"    ::::::::   ::::::  :::   ::: :::",
-\"   :+:   :+: :+:  :+: :+:   :+: :+:  Paul OHL",
-\"  +#++++#+  +#+  +:+ +#++:+#++ +#+",
-\" #+#       #+#  #+# #+#   #+# #+#",
-\"###        ######  ###   ### #######",
+\"     ::::::::   ::::::  :::   ::: :::",
+\"    :+:   :+: :+:  :+: :+:   :+: :+:  Paul OHL",
+\"   +#++++#+  +#+  +:+ +#++:+#++ +#+",
+\"  #+#       #+#  #+# #+#   #+# #+#",
+\" ###        ######  ###   ### #######",
 \]
 
 let s:start		= '/*'
@@ -65,9 +64,9 @@ endfunction
 function! s:textline(text)
 	if strlen(s:end)
 		let l:written_length = strlen(a:text) + strlen(s:start) + strlen(s:end) + 1
-		return s:start . ' ' . a:text . repeat(' ', s:length - l:written_length) . s:end
+		return s:start . a:text . repeat(' ', s:length - l:written_length) . s:end
 	else
-		return s:start . ' ' . a:text
+		return s:start . a:text
 	endif
 endfunction
 
@@ -77,9 +76,7 @@ function! s:line(n)
 	elseif a:n == 2 || a:n == 3 || a:n == 4 || a:n == 5 || a:n == 6 " empty with ascii
 		return s:textline(s:ascii(a:n))
 	elseif a:n == 8 " created
-		return s:textline("Created: " . s:date())
-	elseif a:n == 9 " created
-		return s:textline("Description: ")
+		return s:textline(" Created: " . s:date())
 	endif
 endfunction
 
@@ -96,7 +93,7 @@ function! s:filename()
 endfunction
 
 function! s:insert()
-	let l:line = 10
+	let l:line = 9
 
 	" empty line after header
 	call append(0, "")
